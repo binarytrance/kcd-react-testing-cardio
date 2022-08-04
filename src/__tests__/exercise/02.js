@@ -7,7 +7,7 @@ import {createRoot} from 'react-dom/client'
 // 🐨 import the `render` and `fireEvent` utilities from '@testing-library/react'
 import {render, fireEvent} from '@testing-library/react'
 import Counter from '../../components/counter'
-import {toHaveTextContent} from '@testing-library/jest-dom'
+// import {toHaveTextContent} from '@testing-library/jest-dom'
 
 // NOTE: this is a new requirement in React 18
 // https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#configuring-your-testing-environment
@@ -60,5 +60,5 @@ test('counter increments and decrements when the buttons are clicked', () => {
   // })
   // act(() => decrement.dispatchEvent(decrementClickEvent))
   fireEvent.click(decrement)
-  expect(message).toHaveTextContent('Current count: 0')
+  expect(message).toHaveTextContent('Current count: 0') // provides better error messages
 })
