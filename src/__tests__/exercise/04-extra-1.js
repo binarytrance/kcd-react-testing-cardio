@@ -12,35 +12,31 @@ test('submitting the form calls onSubmit with username and password', async () =
   // 💰 if you need a hand, here's what the handleSubmit function should do:
   // const handleSubmit = data => (submittedData = data)
   let submittedData
-  const handleSubmit = data => {
-    console.log(data)
-    return (submittedData = data)
-  }
+  const handleSubmit = jest.fn() // mock fn
   render(<Login onSubmit={handleSubmit} />)
   //
   // 🐨 render the login with your handleSubmit function as the onSubmit prop
   //
   // 🐨 get the username and password fields via `getByLabelText`
-  const userNameInput = screen.getByLabelText(/username/i)
-  const passwordInput = screen.getByLabelText(/password/i)
-  const username = 'binarytrance'
-  const password = `not a password`
+  const userName = screen.getByLabelText(/username/i)
+  const password = screen.getByLabelText(/password/i)
+  const enteredUserName = 'binarytrance'
+  const enteredPassword = `not a password`
   const submitButton = screen.getByRole('button', {name: /submit/i})
   // console.log(userName)
   // 🐨 use `await userEvent.type...` to change the username and password fields to
   //    whatever you want
-  await userEvent.type(userNameInput, username)
-  await userEvent.type(passwordInput, password)
+  await userEvent.type(userName, enteredUserName)
+  await userEvent.type(password, enteredPassword)
   //
   // 🐨 click on the button with the text "Submit"
   await userEvent.click(submitButton)
   //
-  // assert that submittedData is correct
-  expect(submittedData).toEqual({
-    username,
-    password,
+  expect(handleSubmit).toHaveBeenCalledWith({
+    username: enteredUserName,
+    password: enteredPassword,
   })
-  // 💰 use `toEqual` from Jest: 📜 https://jestjs.io/docs/en/expect#toequalvalue
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
 })
 
 /*
