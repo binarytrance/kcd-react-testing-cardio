@@ -13,6 +13,8 @@ test('submitting the form calls onSubmit with username and password', async () =
   // const handleSubmit = data => (submittedData = data)
   let submittedData
   const handleSubmit = jest.fn() // mock fn
+  // we could pass in a fn to .fn() to make it do something
+  // we could call handleSubmit.mockImplementation/.returnValue etc
   render(<Login onSubmit={handleSubmit} />)
   //
   // 🐨 render the login with your handleSubmit function as the onSubmit prop
@@ -37,6 +39,11 @@ test('submitting the form calls onSubmit with username and password', async () =
     password: enteredPassword,
   })
   expect(handleSubmit).toHaveBeenCalledTimes(1)
+
+  // in exercise 1, we tested the return value of handleSubmit
+  // but in this one, we are testing only whether the args are correctly called and the number of times it is being called.
+  // they don't seem to be equivalent
+  // is it not necessary for us to test the return value of a function everytime?
 })
 
 /*
