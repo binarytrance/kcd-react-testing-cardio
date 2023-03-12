@@ -19,7 +19,7 @@ test('counter increments and decrements when the buttons are clicked', () => {
   // 🐨 use createRoot to render the <Counter /> to the div
   const root = createRoot(element)
   act(() => root.render(<Counter />))
-  console.log(document.body.innerHTML)
+  // console.log(document.body.innerHTML)
   // 🐨 get a reference to the increment and decrement buttons:
   //   💰 div.querySelectorAll('button')
   const [decrementButton, incrementButton] = element.querySelectorAll('button')

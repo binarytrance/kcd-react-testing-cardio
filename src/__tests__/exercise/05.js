@@ -26,7 +26,7 @@ const server = setupServer(
     async (req, res, ctx) => {
       // response resolver which specifies the mocked response it should return - returns
       // a "Content-Type: application/json" response.
-      console.log({req})
+      // console.log({req})
       if (!req.body.password) {
         return res(ctx.status(400), ctx.json({message: 'password required'}))
       }

@@ -12,7 +12,9 @@ test('submitting the form calls onSubmit with username and password', async () =
   // 💰 if you need a hand, here's what the handleSubmit function should do:
   // const handleSubmit = data => (submittedData = data)
   let submittedData
-  const handleSubmit = jest.fn() // mock fn
+  const handleSubmit = jest.fn().mockImplementation(() => {
+    console.log('mock called')
+  }) // mock fn
   // we could pass in a fn to .fn() to make it do something
   // we could call handleSubmit.mockImplementation/.returnValue etc
   render(<Login onSubmit={handleSubmit} />)

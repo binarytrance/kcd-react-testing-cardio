@@ -12,7 +12,10 @@ import {build, fake} from '@jackfranklin/test-data-bot'
 // buildLoginForm is generated with the build utility
 const buildLoginForm = build({
   fields: {
-    username: fake(f => f.internet.userName()), // fake fn will ensure we will generate a new username password every time we call buildLoginForm fn
+    username: fake(f => {
+      // console.log(f.internet, 'f.internet')
+      return f.internet.userName()
+    }), // fake fn will ensure we will generate a new username password every time we call buildLoginForm fn
     password: fake(f => f.internet.password()),
   },
 })

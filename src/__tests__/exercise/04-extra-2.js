@@ -31,7 +31,7 @@ test('submitting the form calls onSubmit with username and password', async () =
     }
   }
   const {username, password} = buildLoginForm()
-  console.log(buildLoginForm())
+  // console.log(buildLoginForm())
   const submitButton = screen.getByRole('button', {name: /submit/i})
   // console.log(userName)
   // 🐨 use `await userEvent.type...` to change the username and password fields to

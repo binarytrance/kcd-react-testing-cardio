@@ -14,6 +14,7 @@ const buildLoginForm = overrides => {
     ...overrides,
   }
 }
+console.log(faker, 'faker')
 
 test('submitting the form calls onSubmit with username and password', async () => {
   // 🐨 create a variable called "submittedData" and a handleSubmit function that
@@ -33,11 +34,11 @@ test('submitting the form calls onSubmit with username and password', async () =
   const {username, password} = buildLoginForm({
     password: 'this is not a password',
   }) //"We just need a normal login form,except the password needs to be something specific for this test."
-  console.log(
-    buildLoginForm({
-      password: 'this is not a password',
-    }),
-  )
+  // console.log(
+  //   buildLoginForm({
+  //     password: 'this is not a password',
+  //   }),
+  // )
   const submitButton = screen.getByRole('button', {name: /submit/i})
   // console.log(userName)
   // 🐨 use `await userEvent.type...` to change the username and password fields to

@@ -13,7 +13,7 @@ test('submitting the form calls onSubmit with username and password', async () =
   // const handleSubmit = data => (submittedData = data)
   let submittedData
   const handleSubmit = data => {
-    console.log(data)
+    // console.log(data)
     return (submittedData = data)
   }
   render(<Login onSubmit={handleSubmit} />)
